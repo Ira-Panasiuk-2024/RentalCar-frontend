@@ -1,0 +1,79 @@
+:root {
+  --font-family: 'Manrope', sans-serif;
+  --second-family: 'Inter', sans-serif;
+
+  --color-border-btn: #3470ff;
+  --color-border-btn-hover: #0b44cd;
+  --color-main: #101828;
+  --color-text-second: #fff;
+  --color-text-hover: #0b44cd;
+  --color-text-gray: #8d929a;
+  --color-accent: #3470ff;
+  --background-hover: #0b44cd;
+  --background-button: #3470ff;
+  --background-color: #f2f4f7;
+  --background-white: #fff;
+  --background-gray: #f7f7f7;
+
+  --font-size-small: 12px;
+  --font-size-medium: 16px;
+  --font-size-large: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 60px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --transition: 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
