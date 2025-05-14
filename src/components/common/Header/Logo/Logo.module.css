@@ -1,0 +1,13 @@
+.textLogo {
+  font-weight: var(--font-weight-bold);
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-main);
+  width: 104px;
+  height: 20px;
+  text-align: center;
+}
+
+.logoAccent {
+  color: var(--color-accent);
+}

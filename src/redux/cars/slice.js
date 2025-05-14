@@ -6,17 +6,14 @@ import {
   fetchCarBrands,
 } from './operations';
 
-const initialState = {
-  items: [],
-  car: null,
-  brands: [],
-  isLoading: false,
-  error: null,
-};
-
 const carsSlice = createSlice({
   name: 'cars',
-  initialState,
+  initialState: {
+    items: [],
+    car: null,
+    isLoading: false,
+    error: null,
+  },
   reducers: {
     resetCarDetails: state => {
       state.car = null;

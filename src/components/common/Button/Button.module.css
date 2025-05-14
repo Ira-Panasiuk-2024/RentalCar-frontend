@@ -1,0 +1,37 @@
+.button {
+  display: inline-block;
+  border-radius: 12px;
+  font-size: var(--font-size-medium);
+  line-height: 1.25;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white-second);
+  background-color: var(--background-button);
+  transition: background-color var(--transition);
+  height: 44px;
+}
+
+.button:hover,
+.button:focus {
+  background-color: var(--background-hover);
+}
+
+/* Variants */
+.catalog {
+  padding: 12px 88px;
+  max-width: 276px;
+}
+
+.readMore {
+  padding: 12px 99px;
+  max-width: 276px;
+}
+
+.search {
+  padding: 12px 51px;
+  max-width: 156px;
+}
+
+.send {
+  padding: 12px 51px;
+  max-width: 156px;
+}

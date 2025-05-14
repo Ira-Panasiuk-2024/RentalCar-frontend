@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import carsAPI from '../../services/api';
+import { resetCars } from '../cars/slice';
 
 export const fetchAllCars = createAsyncThunk(
   'cars/fetchAll',
@@ -27,8 +28,9 @@ export const fetchCarDetails = createAsyncThunk(
 
 export const fetchFilteredCars = createAsyncThunk(
   'cars/fetchByFilter',
-  async (filters, { rejectWithValue }) => {
+  async (filters, { rejectWithValue, dispatch }) => {
     try {
+      dispatch(resetCars());
       const data = await carsAPI.fetchCarsByFilter(filters);
       return data;
     } catch (error) {

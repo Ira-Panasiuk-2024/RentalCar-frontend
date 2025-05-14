@@ -1,3 +1,10 @@
+export const BUTTON_VARIANTS = {
+  catalog: 'catalog',
+  readMore: 'readMore',
+  search: 'search',
+  send: 'send',
+};
+
 export const PRICE_RANGES = [
   { value: '30', label: '$30' },
   { value: '40', label: '$40' },

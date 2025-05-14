@@ -1,0 +1,42 @@
+.hero {
+  max-width: 100%;
+  height: 700px;
+  background-image: url('../../../assets/img/car@1x.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding-top: 436px;
+  padding-bottom: 60px;
+}
+
+@media screen and (min-resolution: 192dpi),
+  (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 2dppx) {
+  .hero {
+    background-image: url('../../../assets//img/car@2x.png');
+  }
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white-second);
+  padding-right: 216px;
+  padding-left: 216px;
+}
+
+.title {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.33;
+  margin-bottom: 40px;
+}

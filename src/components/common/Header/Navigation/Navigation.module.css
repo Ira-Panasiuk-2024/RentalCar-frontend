@@ -1,0 +1,33 @@
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  gap: 32px;
+}
+
+.navItem {
+  max-width: 136px;
+  text-align: center;
+}
+
+.navLink {
+  display: inline-block;
+  color: var(--color-main);
+  text-decoration: none;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  transition: color var(--transition);
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: var(--color-text-hover);
+}
+
+.active {
+  color: var(--color-text-hover);
+}

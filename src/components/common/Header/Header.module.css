@@ -1,0 +1,13 @@
+.header {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  background-color: var(--background-color);
+}
+
+.box {
+  padding-left: 120px;
+  padding-right: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

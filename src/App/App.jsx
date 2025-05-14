@@ -1,7 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import {Layout} from '../components/common/Layout/Layout';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { Layout } from '../components/common/Layout/Layout';
 import Loader from '../components/common/Loader/Loader';
+import { fetchCarBrands } from '../redux/cars/operations';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 const CatalogPage = lazy(() => import('../pages/CatalogPage/CatalogPage'));
@@ -10,6 +13,12 @@ const CarDetailsPage = lazy(() =>
 );
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCarBrands());
+  }, [dispatch]);
+
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
