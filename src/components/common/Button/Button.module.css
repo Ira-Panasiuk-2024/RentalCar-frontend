@@ -6,7 +6,7 @@
   font-weight: var(--font-weight-semibold);
   color: var(--color-white-second);
   background-color: var(--background-button);
-  transition: background-color var(--transition);
+  transition: background-color var(--transition), border-color var(--transition);
   height: 44px;
 }
 
@@ -34,4 +34,18 @@
 .send {
   padding: 12px 51px;
   max-width: 156px;
+}
+
+.loadMore {
+  border: 1px solid var(--color-border-btn);
+  padding: 12px 51px;
+  max-width: 156px;
+  background-color: var(--background-white);
+  color: var(--color-main);
+
+  &:hover,
+  &:focus {
+    background-color: var(--background-white);
+    border-color: var(--color-border-btn-hover);
+  }
 }

@@ -6,24 +6,26 @@ const carsAPI = axios.create({
   baseURL: BASE_URL,
 });
 
-export const fetchCars = async (page = 1, limit = 8) => {
+export const fetchCars = async (page = 1, limit = 12) => {
   const response = await carsAPI.get('/cars', {
     params: { page, limit },
   });
   return response.data;
 };
 
-export const fetchCarById = async (id) => {
+export const fetchCarById = async id => {
   const response = await carsAPI.get(`/cars/${id}`);
   return response.data;
 };
 
-export const fetchCarsByFilter = async (params) => {
+export const fetchCarsByFilter = async params => {
+  console.log('API request params:', params);
   const response = await carsAPI.get('/cars', {
     params: {
       ...params,
     },
   });
+  console.log('API response:', response.data);
   return response.data;
 };
 

@@ -3,6 +3,7 @@ export const BUTTON_VARIANTS = {
   readMore: 'readMore',
   search: 'search',
   send: 'send',
+  loadMore: 'loadMore',
 };
 
 export const PRICE_RANGES = [

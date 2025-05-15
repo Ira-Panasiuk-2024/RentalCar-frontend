@@ -3,7 +3,7 @@ import css from './Button.module.css';
 import { BUTTON_VARIANTS } from '../../../utils/constants';
 
 const Button = ({
-  label,
+  children,
   onClick = () => {},
   variant = BUTTON_VARIANTS.catalog,
   className = '',
@@ -23,17 +23,17 @@ const Button = ({
       disabled={disabled}
       {...restProps}
     >
-      {label}
+      {children}
     </button>
   );
 };
 
 Button.propTypes = {
-  label: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
   variant: PropTypes.oneOf(Object.values(BUTTON_VARIANTS)),
   className: PropTypes.string,
-  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  type: PropTypes.oneOf(['button', 'submit']),
   disabled: PropTypes.bool,
 };
 

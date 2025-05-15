@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchAllCars } from '../../../redux/cars/operations';
 import Button from '../../common/Button/Button';
+import { BUTTON_VARIANTS } from '../../../utils/constants';
 import css from './Banner.module.css';
 
 const Banner = () => {
@@ -22,10 +23,12 @@ const Banner = () => {
           Reliable and budget-friendly rentals for any journey
         </p>
         <Button
-          label="View Catalog"
-          variant="catalog"
+          type="button"
+          variant={BUTTON_VARIANTS.catalog}
           onClick={handleViewCatalog}
-        />
+        >
+          View Catalog
+        </Button>
       </div>
     </section>
   );
