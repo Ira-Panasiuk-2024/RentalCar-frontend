@@ -19,13 +19,12 @@ export const fetchCarById = async id => {
 };
 
 export const fetchCarsByFilter = async params => {
-  console.log('API request params:', params);
   const response = await carsAPI.get('/cars', {
     params: {
       ...params,
     },
   });
-  console.log('API response:', response.data);
+
   return response.data;
 };
 

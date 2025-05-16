@@ -14,14 +14,16 @@ const MileageRange = () => {
   const dispatch = useDispatch();
   const mileageFrom = useSelector(selectMileageFromFilter);
   const mileageTo = useSelector(selectMileageToFilter);
-
   const [localFrom, setLocalFrom] = useState(mileageFrom);
   const [localTo, setLocalTo] = useState(mileageTo);
 
   useEffect(() => {
     setLocalFrom(mileageFrom);
+  }, [mileageFrom]);
+
+  useEffect(() => {
     setLocalTo(mileageTo);
-  }, [mileageFrom, mileageTo]);
+  }, [mileageTo]);
 
   const handleFromChange = useCallback(
     event => {
@@ -51,6 +53,7 @@ const MileageRange = () => {
           value={localFrom}
           onChange={handleFromChange}
           className={css.input}
+          min="0"
         />
         <input
           type="number"
@@ -58,6 +61,7 @@ const MileageRange = () => {
           value={localTo}
           onChange={handleToChange}
           className={css.input}
+          min="0"
         />
       </div>
     </div>
