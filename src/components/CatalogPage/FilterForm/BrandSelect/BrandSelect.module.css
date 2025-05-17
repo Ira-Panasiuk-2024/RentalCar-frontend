@@ -1,5 +1,86 @@
-.selectWrapper {}
+.selectWrapper {
+  width: 204px;
+}
 
-.label {}
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.33;
+  color: var(--color-text-gray);
+}
 
-.select {}
+.selectContainer {
+  position: relative;
+  width: 100%;
+}
+
+.select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: var(--background-gray);
+  border: 1px solid transparent;
+  padding-right: 32px;
+
+  appearance: none; /* Видаляє стандартну стрілку в select */
+  -webkit-appearance: none; /* Для Safari */
+  -moz-appearance: none; /* Для Firefox */
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Для IE і Edge */
+.select::-ms-expand {
+  display: none;
+}
+
+select {
+  &::-webkit-scrollbar {
+    width: 0 !important;
+    display: none !important;
+  }
+  scrollbar-width: none;
+}
+
+.placeholder {
+  color: var(--color-main);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.option {
+  color: var(--color-text-gray);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  background-color: var(--background-white);
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+  transition: box-shadow var(--transition);
+}
+
+option:checked {
+  color: var(--color-main);
+}
+
+.selectIcon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: transform var(--transition);
+  width: 16px;
+  height: 16px;
+  fill: var(--color-main);
+}
+
+.rotated {
+  transform: translateY(-50%) rotate(180deg);
+}

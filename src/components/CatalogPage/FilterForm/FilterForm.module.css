@@ -1,20 +1,9 @@
 .filterForm {
-}
-
-.filterGroup {
-}
-
-.label {
-}
-
-.select {
-}
-
-.mileageInputGroup {
-}
-
-.input {
-}
-
-.buttonGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 16px;
+  padding-left: 258px;
+  padding-right: 258px;
+  margin-bottom: 56px;
 }

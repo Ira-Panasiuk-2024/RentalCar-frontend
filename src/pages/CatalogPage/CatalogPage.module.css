@@ -1,3 +1,17 @@
-/* .catalogPage {
-  margin: 0 auto;
-} */
+.noCarsMessage {
+  font-family: var(--second-family);
+  color: crimson;
+  text-align: left;
+  margin-top: 15px;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+}
+
+.errorMessage {
+  font-family: var(--second-family);
+  color: crimson;
+  text-align: left;
+  margin-top: 15px;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+}

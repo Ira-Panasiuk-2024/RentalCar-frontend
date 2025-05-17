@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { setBrandFilter } from '../../../../redux/filter/slice';
 import { selectBrandFilter } from '../../../../redux/filter/selectors';
 import { selectCarBrands } from '../../../../redux/cars/selectors';
@@ -10,14 +10,22 @@ const BrandSelect = () => {
   const dispatch = useDispatch();
   const brands = useSelector(selectCarBrands);
   const selectedBrand = useSelector(selectBrandFilter);
-  const [isActive, setIsActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const selectRef = useRef(null);
 
   const handleChange = event => {
     dispatch(setBrandFilter(event.target.value));
   };
 
-  const handleFocus = () => setIsActive(true);
-  const handleBlur = () => setIsActive(false);
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleBlur = () => {
+    setTimeout(() => {
+      setIsOpen(false);
+    }, 100);
+  };
 
   return (
     <div className={css.selectWrapper}>
@@ -27,21 +35,24 @@ const BrandSelect = () => {
       <div className={css.selectContainer}>
         <select
           id="brand"
+          ref={selectRef}
           className={css.select}
           value={selectedBrand}
           onChange={handleChange}
-          onFocus={handleFocus}
+          onClick={handleClick}
           onBlur={handleBlur}
         >
-          <option value="">Choose a brand</option>
+          <option value="" disabled hidden className={css.placeholder}>
+            Choose a brand
+          </option>
           {brands.map(brand => (
-            <option key={brand} value={brand}>
+            <option className={css.option} key={brand} value={brand}>
               {brand}
             </option>
           ))}
         </select>
-        <div className={css.selectIcon}>
-          {isActive ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+        <div className={`${css.selectIcon} ${isOpen ? css.rotated : ''}`}>
+          <ChevronDown size={16} />
         </div>
       </div>
     </div>

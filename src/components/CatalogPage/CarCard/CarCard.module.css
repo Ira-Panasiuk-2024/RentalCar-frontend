@@ -1,21 +1,124 @@
-.carCard {}
+.carCard {
+  position: relative;
+  width: 276px;
+  height: 424px;
+  background-color: var(--background-white);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition);
+  cursor: pointer;
+}
 
-.imageWrapper {}
+.carCard:hover {
+  transform: translateY(-5px);
+}
 
-.carImage {}
+.imageWrapper {
+  width: 100%;
+  height: 268px;
+  border-radius: 14px;
+  overflow: hidden;
+}
 
-.carInfo {} 
+.carImage {
+  object-fit: cover;
 
-.title {}
 
-.model {}
+}
 
-.price {}
+.carInfo {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
-.details {}
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
 
-.favoriteButton {}
+.title {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-main);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  min-width: 0; /* ЦЕ ВАЖЛИВО: дозволяє flex-елементу коректно стискатися та обрізатися */
+  padding-right: 6px;
+}
 
-.isFavorite {}
+.model {
+  color: var(--color-accent);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  padding-left: 6px;
+}
 
-.heartIcon {}
+.price {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-main);
+  flex-shrink: 0;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-gray);
+  margin-bottom: 34px;
+  line-height: 1.33;
+  overflow: hidden;
+  align-items: center;
+}
+
+.details p {
+  padding-right: 8px;
+}
+
+.details p:not(:last-child) {
+  border-right: 2px solid var(--color-border-two);
+}
+
+.locationOne {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.locationTwo {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.favoriteButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  z-index: 10;
+}
+
+.favoriteButton.isFavorite .heartIcon {
+  fill: var(--color-accent);
+  stroke: var(--color-accent);
+}
+
+.heartIcon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-white-second);
+  stroke-width: 1.7;
+  transition: fill var(--transition), stroke var(--transition);
+}
