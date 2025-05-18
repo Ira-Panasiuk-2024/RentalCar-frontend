@@ -35,7 +35,7 @@ RentalCar - це сучасний веб-додаток для компанії,
 
 1. Клонуйте репозиторій:
 bash git clone https://github.com/Ira-Panasiuk-2024/RentalCar-frontend
-cd rental-car
+cd RentalCar-frontend
 
 2. Встановіть залежності:
 
