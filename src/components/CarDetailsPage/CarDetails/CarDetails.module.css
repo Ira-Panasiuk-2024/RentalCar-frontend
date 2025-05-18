@@ -1,16 +1,25 @@
 .carDetailsContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 120px;
+  padding-right: 120px;
+  gap: 72px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.leftColumnWrapper {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 35px;
+  flex-shrink: 0;
+  flex-basis: 640px;
 }
 
 .carImageContainer {
   position: relative;
-  width: 100%;
-  height: 400px;
+  width: 640px;
+  height: 512px;
   overflow: hidden;
   border-radius: 14px;
 }
@@ -21,49 +30,72 @@
   object-fit: cover;
 }
 
+.formSection {
+  width: 640px;
+
+  flex-shrink: 0;
+}
+
 .carInfo {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  flex-grow: 1;
+  min-width: 488px;
+  padding-top: 25px;
+  flex-basis: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.conditionsList {
+  margin-bottom: 110px;
 }
 
 .headerInfo {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  margin-bottom: 8px;
 }
-
 .carTitle {
-  font-size: 24px;
-  font-weight: 500;
-  color: #121417;
-  margin: 0;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-main);
+  white-space: nowrap;
+  margin-right: 16px;
 }
-
+.carId {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+  min-width: 0;
+}
 .model {
-  color: #3470ff;
+  color: var(--color-main);
 }
-
-.detailsGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .detailsRow {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  color: var(--color-main);
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  margin-bottom: 16px;
 }
-
 .detailsRow p {
   margin: 0;
   padding: 0;
-  font-size: 16px;
-  color: rgba(18, 20, 23, 0.5);
   position: relative;
+  display: flex;
+  align-items: center;
 }
-
 .detailsRow p:not(:last-child)::after {
   content: '';
   position: absolute;
@@ -74,54 +106,49 @@
   height: 16px;
   background-color: rgba(18, 20, 23, 0.1);
 }
-
+.rentalPrice {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  line-height: 1.33;
+  margin-bottom: 32px;
+}
 .description {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #121417;
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+  color: var(--color-main);
+  margin-bottom: 68px;
 }
-
-.section {
-  margin-top: 24px;
-}
-
 .sectionTitle {
-  font-size: 18px;
-  font-weight: 500;
-  color: #121417;
-  margin-bottom: 16px;
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-main);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
-
 .detailsList,
 .conditionsList {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  gap: 16px;
 }
-
 .detailsItem,
 .conditionItem {
-  padding: 8px 14px;
-  background-color: #f9f9f9;
-  border-radius: 14px;
-  font-size: 14px;
-  color: #363535;
+  font-size: var(--font-size-medium);
+  color: var(--color-main);
+  line-height: 1.25;
+  font-weight: var(--font-weight-medium);
 }
-
-.highlight {
-  color: #3470ff;
-  font-weight: 600;
-}
-
-.formSection {
-  margin-top: 32px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(18, 20, 23, 0.1);
-}
-
 .notFound {
   text-align: center;
-  font-size: 24px;
-  color: #121417;
+  font-size: var(--font-size-xl);
+  color: red;
   margin-top: 100px;
+}
+.icon {
+  color: var(--color-main);
+  margin-right: 10px;
+  flex-shrink: 0;
 }
