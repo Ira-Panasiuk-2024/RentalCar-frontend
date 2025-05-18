@@ -23,7 +23,7 @@
   background-color: var(--background-gray);
   border: 1px solid transparent;
   padding-right: 32px;
-
+  cursor: pointer;
   appearance: none; /* Видаляє стандартну стрілку в select */
   -webkit-appearance: none; /* Для Safari */
   -moz-appearance: none; /* Для Firefox */
@@ -36,14 +36,6 @@
 /* Для IE і Edge */
 .select::-ms-expand {
   display: none;
-}
-
-select {
-  &::-webkit-scrollbar {
-    width: 0 !important;
-    display: none !important;
-  }
-  scrollbar-width: none;
 }
 
 .placeholder {

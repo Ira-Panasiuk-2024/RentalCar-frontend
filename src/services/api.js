@@ -24,7 +24,6 @@ export const fetchCarsByFilter = async params => {
       ...params,
     },
   });
-
   return response.data;
 };
 

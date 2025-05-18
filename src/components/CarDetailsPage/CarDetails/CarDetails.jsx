@@ -36,27 +36,21 @@ const CarDetails = () => {
     return <div className={css.notFound}>Car details not found</div>;
   }
 
-  // --- ПОЧАТОК НОВОГО ВИПРАВЛЕННЯ ДЛЯ rentalConditions ---
-  // Backend повертає rentalConditions як масив рядків, тому не потрібен split().
   const rentalConditions = Array.isArray(car.rentalConditions)
     ? car.rentalConditions
-    : []; // Fallback, якщо з якихось причин це не масив
+    : [];
 
-  // Знаходимо умову мінімального віку, враховуючи можливу помилку "ag" замість "age" у даних з бекенду
   const minimumAgeCondition = rentalConditions.find(condition =>
     condition.toLowerCase().includes('minimum ag')
   );
   const minimumAge = minimumAgeCondition
-    ? minimumAgeCondition.replace(/\D/g, '') // Витягуємо лише цифри
-    : '25'; // Значення за замовчуванням
+    ? minimumAgeCondition.replace(/\D/g, '')
+    : '25';
 
-  // Фільтруємо інші умови, щоб вивести їх окремо
   const otherRentalConditions = rentalConditions.filter(
     condition => !condition.toLowerCase().includes('minimum ag')
   );
-  // --- КІНЕЦЬ НОВОГО ВИПРАВЛЕННЯ ---
 
-  // Форматуємо пробіг
   const formattedMileage = car.mileage ? formatMileage(car.mileage) : 'N/A';
 
   return (
@@ -79,7 +73,6 @@ const CarDetails = () => {
 
         <div className={css.detailsGrid}>
           <div className={css.detailsRow}>
-            {/* Додано іконку MapPin */}
             <p>
               <MapPin size={16} className={css.icon} />{' '}
               {car.address ? car.address.split(', ')[1] : 'N/A'}
@@ -89,7 +82,6 @@ const CarDetails = () => {
           </div>
 
           <div className={css.detailsRow}>
-            {/* Додано іконки для Car Specifications */}
             <p>
               <CalendarDays size={16} className={css.icon} /> Year: {car.year}
             </p>
@@ -117,7 +109,6 @@ const CarDetails = () => {
             {car.accessories &&
               car.accessories.map((item, index) => (
                 <span key={`accessory-${index}`} className={css.detailsItem}>
-                  {/* Додано іконку CircleCheck */}
                   <CircleCheck size={16} className={css.icon} /> {item}
                 </span>
               ))}
@@ -127,7 +118,6 @@ const CarDetails = () => {
                   key={`functionality-${index}`}
                   className={css.detailsItem}
                 >
-                  {/* Додано іконку CircleCheck */}
                   <CircleCheck size={16} className={css.icon} /> {item}
                 </span>
               ))}
@@ -138,25 +128,21 @@ const CarDetails = () => {
           <h3 className={css.sectionTitle}>Rental Conditions:</h3>
           <div className={css.conditionsList}>
             <span className={css.conditionItem}>
-              {/* Додано іконку CircleCheck */}
               <CircleCheck size={16} className={css.icon} /> Minimum age:{' '}
               <span className={css.highlight}>{minimumAge}</span>
             </span>
-            {/* Використовуємо otherRentalConditions, які вже є масивом */}
+
             {Array.isArray(otherRentalConditions) &&
               otherRentalConditions.map((condition, index) => (
                 <span key={`condition-${index}`} className={css.conditionItem}>
-                  {/* Додано іконку CircleCheck */}
                   <CircleCheck size={16} className={css.icon} /> {condition}
                 </span>
               ))}
             <span className={css.conditionItem}>
-              {/* Додано іконку CircleCheck */}
               <CircleCheck size={16} className={css.icon} /> Mileage:{' '}
               <span className={css.highlight}>{formattedMileage}</span>
             </span>
             <span className={css.conditionItem}>
-              {/* Додано іконку CircleCheck */}
               <CircleCheck size={16} className={css.icon} /> Price:{' '}
               <span className={css.highlight}>${car.rentalPrice}</span>
             </span>

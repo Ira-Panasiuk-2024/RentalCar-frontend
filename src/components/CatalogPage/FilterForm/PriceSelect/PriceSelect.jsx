@@ -26,12 +26,18 @@ const PriceSelect = () => {
     }, 100);
   };
 
+  const displayValue = selectedPrice
+    ? `To $${selectedPrice}`
+    : 'Choose a price';
+
   return (
     <div className={css.selectWrapper}>
       <label htmlFor="price" className={css.label}>
         Price/1 hour
       </label>
       <div className={css.selectContainer}>
+        <div className={css.selectedDisplay}>{displayValue}</div>
+
         <select
           id="price"
           ref={selectRef}
@@ -41,19 +47,18 @@ const PriceSelect = () => {
           onClick={handleClick}
           onBlur={handleBlur}
         >
-          <option value="" disabled hidden className={css.placeholder}>
-            Choose a price
-          </option>
+          <option value="" disabled hidden></option>
           {PRICE_RANGES.map(price => (
             <option
               className={css.option}
               key={price.value}
               value={price.value}
             >
-              {price.label}
+              {price.label}{' '}
             </option>
           ))}
         </select>
+
         <div className={`${css.selectIcon} ${isOpen ? css.rotated : ''}`}>
           <ChevronDown size={16} />
         </div>
