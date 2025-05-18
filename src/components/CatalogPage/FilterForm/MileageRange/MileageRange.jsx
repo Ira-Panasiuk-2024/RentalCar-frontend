@@ -15,26 +15,25 @@ const MileageRange = () => {
   const dispatch = useDispatch();
   const mileageFrom = useSelector(selectMileageFromFilter);
   const mileageTo = useSelector(selectMileageToFilter);
+
   const [localFrom, setLocalFrom] = useState(mileageFrom);
   const [localTo, setLocalTo] = useState(mileageTo);
-  const [displayFrom, setDisplayFrom] = useState(formatMileage(mileageFrom));
-  const [displayTo, setDisplayTo] = useState(formatMileage(mileageTo));
+
+  const [isFromFocused, setIsFromFocused] = useState(false);
+  const [isToFocused, setIsToFocused] = useState(false);
 
   useEffect(() => {
     setLocalFrom(mileageFrom);
-    setDisplayFrom(formatMileage(mileageFrom));
   }, [mileageFrom]);
 
   useEffect(() => {
     setLocalTo(mileageTo);
-    setDisplayTo(formatMileage(mileageTo));
   }, [mileageTo]);
 
   const handleFromChange = useCallback(
     event => {
       const value = event.target.value.replace(/\s/g, '');
       setLocalFrom(value);
-      setDisplayFrom(formatMileage(value));
       dispatch(setMileageFromFilter(value));
     },
     [dispatch]
@@ -44,54 +43,45 @@ const MileageRange = () => {
     event => {
       const value = event.target.value.replace(/\s/g, '');
       setLocalTo(value);
-      setDisplayTo(formatMileage(value));
       dispatch(setMileageToFilter(value));
     },
     [dispatch]
   );
 
-  const handleFromFocus = useCallback(() => {
-    const input = document.getElementById('mileageFrom');
-    input.value = localFrom;
-  }, [localFrom]);
-
-  const handleToFocus = useCallback(() => {
-    const input = document.getElementById('mileageTo');
-    input.value = localTo;
-  }, [localTo]);
-
-  const handleFromBlur = useCallback(() => {
-    const input = document.getElementById('mileageFrom');
-    input.value = displayFrom;
-  }, [displayFrom]);
-
-  const handleToBlur = useCallback(() => {
-    const input = document.getElementById('mileageTo');
-    input.value = displayTo;
-  }, [displayTo]);
-
   return (
-    <div className={css.rangeWrapper}>
+    <div>
       <label className={css.label}>Car mileage / km</label>
       <div className={css.inputGroup}>
         <input
           id="mileageFrom"
           type="text"
           placeholder="From"
-          value={displayFrom}
+          value={
+            isFromFocused
+              ? localFrom
+              : localFrom !== ''
+              ? `From ${formatMileage(localFrom)}`
+              : ''
+          }
           onChange={handleFromChange}
-          onFocus={handleFromFocus}
-          onBlur={handleFromBlur}
+          onFocus={() => setIsFromFocused(true)}
+          onBlur={() => setIsFromFocused(false)}
           className={css.inputFrom}
         />
         <input
           id="mileageTo"
           type="text"
           placeholder="To"
-          value={displayTo}
+          value={
+            isToFocused
+              ? localTo
+              : localTo !== ''
+              ? `To ${formatMileage(localTo)}`
+              : ''
+          }
           onChange={handleToChange}
-          onFocus={handleToFocus}
-          onBlur={handleToBlur}
+          onFocus={() => setIsToFocused(true)}
+          onBlur={() => setIsToFocused(false)}
           className={css.inputTo}
         />
       </div>

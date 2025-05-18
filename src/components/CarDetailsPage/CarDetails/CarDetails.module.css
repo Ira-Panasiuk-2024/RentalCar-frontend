@@ -1,0 +1,127 @@
+.carDetailsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.carImageContainer {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.carDetailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.headerInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carTitle {
+  font-size: 24px;
+  font-weight: 500;
+  color: #121417;
+  margin: 0;
+}
+
+.model {
+  color: #3470ff;
+}
+
+.detailsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detailsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.detailsRow p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: rgba(18, 20, 23, 0.5);
+  position: relative;
+}
+
+.detailsRow p:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  background-color: rgba(18, 20, 23, 0.1);
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #121417;
+}
+
+.section {
+  margin-top: 24px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: 500;
+  color: #121417;
+  margin-bottom: 16px;
+}
+
+.detailsList,
+.conditionsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.detailsItem,
+.conditionItem {
+  padding: 8px 14px;
+  background-color: #f9f9f9;
+  border-radius: 14px;
+  font-size: 14px;
+  color: #363535;
+}
+
+.highlight {
+  color: #3470ff;
+  font-weight: 600;
+}
+
+.formSection {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(18, 20, 23, 0.1);
+}
+
+.notFound {
+  text-align: center;
+  font-size: 24px;
+  color: #121417;
+  margin-top: 100px;
+}

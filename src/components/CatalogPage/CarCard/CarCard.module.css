@@ -51,7 +51,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   flex-grow: 1;
-  min-width: 0; /* ЦЕ ВАЖЛИВО: дозволяє flex-елементу коректно стискатися та обрізатися */
+  min-width: 0;
   padding-right: 6px;
 }
 

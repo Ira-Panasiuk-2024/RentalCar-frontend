@@ -6,6 +6,7 @@ import { PersistGate } from 'redux-persist/lib/integration/react';
 
 import 'modern-normalize';
 import './index.css';
+
 import App from './App/App.jsx';
 
 import { persistor, store } from './redux/store.js';
